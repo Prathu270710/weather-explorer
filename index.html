@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- UTF-8 character encoding (supports all languages) -->
+    <meta charset="UTF-8">
+    <!-- responsive on mobile devices -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Weather Buddy</title>
+    
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Nav Bar -->
+    <nav>
+        <div class="nav-container">
+            <!-- Logo  -->
+            <div class="logo">
+                <span>☁️</span> 
+                <span>Weather Explorer</span>
+            </div>
+            <!-- Navigation menu -->
+            <ul class="nav-links">
+                <li><a onclick="showView('home')" class="nav-link active" data-view="home">Home</a></li>
+                <li><a onclick="showView('home')" class="nav-link" data-view="features">Features</a></li>
+                <li><a onclick="showView('home')" class="nav-link" data-view="about">About</a></li>
+                <li><button onclick="showView('map')" class="map-btn">Open Map 🗺️</button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="home-view" id="home-view">
+            <div class="hero-section">
+                <h1>Discover Weather Anywhere</h1>
+                <p>Click anywhere on our interactive map to get instant weather updates from around the world</p>
+            </div>
+
+            <div class="quick-search">
+                <input type="text" class="search-input" placeholder="Quick search: Enter a city name..." id="city-search">
+            </div>
+
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Coverage</h3>
+                    <p>Access real-time weather data from any location worldwide with just a single click</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Instant Updates</h3>
+                    <p>Get immediate weather information including temperature, humidity, and wind conditions</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📍</div>
+                    <h3>Interactive Map</h3>
+                    <p>Navigate easily with our intuitive map interface and visual weather indicators</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Map View Section -->
+        <div class="map-view" id="map-view">
+            <!-- Map Header -->
+            <div class="map-header">
+                <h2>Interactive Weather Map</h2>
+                <p>Click anywhere on the map to view weather information for that location</p>
+            </div>
+            
+            <!-- Map Container - Leaflet will render here -->
+            <div id="map"></div>
+            
+            <!-- Weather Information Card -->
+            <div class="weather-card" id="weather-card">
+                <!-- Location Information -->
+                <div class="location-header">
+                    <h3 id="location-name">Select a location</h3>
+                    <span class="location-coords" id="location-coords"></span>
+                </div>
+                <!-- Weather Data Grid - Will be populated by JavaScript -->
+                <div class="weather-grid" id="weather-grid">
+                    <!-- Weather data will be inserted here dynamically -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Link to our custom JavaScript file -->
+    <script src="app.js"></script>
+</body>
+</html>
